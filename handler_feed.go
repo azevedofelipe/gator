@@ -9,14 +9,9 @@ import (
 	"github.com/google/uuid"
 )
 
-func handlerAddFeed(s *state, cmd command) error {
+func handlerAddFeed(s *state, cmd command, currentUser database.User) error {
 	if len(cmd.Args) != 2 {
 		return fmt.Errorf("name and url are required")
-	}
-
-	currentUser, err := s.db.GetUser(context.Background(), s.cfg.User)
-	if err != nil {
-		return fmt.Errorf("Error getting current user: %v", err)
 	}
 
 	name := cmd.Args[0]
