@@ -44,6 +44,7 @@ func main() {
 	commandList.register("follow", middlewareLoggedIn(handlerFollow))
 	commandList.register("following", middlewareLoggedIn(handlerFollowing))
 	commandList.register("unfollow", middlewareLoggedIn(handlerUnfollow))
+	commandList.register("browse", middlewareLoggedIn(handlerBrowse))
 
 	args := os.Args
 	if len(args) < 2 {
